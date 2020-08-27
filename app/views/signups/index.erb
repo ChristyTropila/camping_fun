@@ -1,0 +1,6 @@
+<h2>Here are All the Signups</h2>
+
+<%# Display a list all of the Signups %>
+    <% @signups.each do |signup| %>
+    <div><%= link_to signup, signup_path(signup) %></div>
+    <% end %>
