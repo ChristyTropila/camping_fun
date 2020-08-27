@@ -1,5 +1,5 @@
 <h2>Here are All the Campers</h2>
-
+<ul>
 <%# Display a list all of the campers %>
     <% @campers.each do |camper| %>
     <div><%= link_to camper.name, camper_path(camper) %></div>
