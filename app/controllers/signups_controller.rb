@@ -1,4 +1,4 @@
-class SignupController < ApplicationController
+class SignupsController < ApplicationController
     
     def index
         @signup = Signup.all
@@ -10,12 +10,14 @@ class SignupController < ApplicationController
 
     def new
         @signup = Signup.new
-        render :form
+        @campers = Camper.all
+        @activities = Activity.all
     end
 
     def create
-        @signup = Signup.create(strong_params(:camper_id, :activity_id, :time))
-        redirect_to signup_path(@signup)
+        @signup = Signup.create(signup_params)
+        camper = Camper.find(params[:signup][:camper_id])
+        redirect_to camper_path(camper)
     end
 
     def edit
@@ -31,7 +33,7 @@ class SignupController < ApplicationController
 
     private
 
-    def strong_params(*args)
+    def signup_params(*args)
         params.require(:signup).permit(*args)
     end
 

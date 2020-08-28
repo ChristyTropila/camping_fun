@@ -1,7 +1,9 @@
-<h2>Here are All the Campers</h2>
-<ul>
-<%# Display a list all of the campers %>
-    <% @campers.each do |camper| %>
-    <div><%= link_to camper.name, camper_path(camper) %></div>
-    <% end %>
+<h2>Here are All the Campers!</h2>
 
+<%# Display a list all of the campers %>
+<ul>
+<% @camper.map do |camper|%> 
+   <h3><li> <%= link_to camper.name, camper_path(camper) %> </li></h3>
+<%end%>
+
+</ul>

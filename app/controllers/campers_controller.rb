@@ -1,15 +1,17 @@
 class CampersController < ApplicationController
+    
     def index
+        @camper = Camper.all
     end
+
     def show
         @camper = Camper.find(params[:id])
     end
     def new
         @camper = Camper.new
-        render :form
     end
     def create
-        @camper = Camper.create(strong_params(:name, :bio))
+        @camper = Camper.create(camper_params)
         redirect_to camper_path(@camper)
     end
     def edit
@@ -22,7 +24,7 @@ class CampersController < ApplicationController
         redirect_to camper_path(@camper)
     end
     private
-    def strong_params(*args)
+    def camper_params(*args)
         params.require(:camper).permit(*args)
     end
 end

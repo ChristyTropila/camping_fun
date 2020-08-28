@@ -1,0 +1,16 @@
+<h1> Sign Up for a New Activity!</h1>
+
+<%= form_for @signup do |f| %>
+    
+    <h3> <%= f.label :camper_id, "Camper:" %> </h3>
+    <%= f.collection_select :camper_id, @campers, :id, :name %> <br>
+    <br>
+    <h3><%= f.label :activity_id, "Activity: " %></h3>
+    <%= f.collection_select :activity_id, @activities, :id, :name %> <br>
+    <br>
+    <%= f.submit "Sign Up!" %>
+<% end %>
+<br>
+<br>
+<%= button_to("Back to Activities", activities_path, method: :get) %><br>
+<%= button_to("Back to Campers", campers_path, method: :get) %><br>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get '/campers', to: "campers#index", as: "campers"
   get '/campers/new', to: "campers#new", as: "new_camper"
   post '/campers', to: "campers#create"
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   get '/signups/:id/edit', to: "signups#edit", as: "edit_signup"
   patch 'signups/:id', to: "signups#update"
   delete 'signups/:id', to: "signups#destroy"
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

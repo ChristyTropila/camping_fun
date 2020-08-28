@@ -1,1 +1,8 @@
-<h1> <%= @camper.name %> <br> <%= @camper.age %> <br> <%= @camper.signups.map {|signup| signup.find_name[signup.id] } %> </h1>
+<h2> Name: <%= @camper.name %> </h2> 
+<h2> Age: <%= @camper.age %> years old </h2>
+
+<h2> Activities: </h2>
+<%= @camper.activities.map {|activity| activity.name} %>
+<br>
+<br>
+<%= button_to("Back to All Campers", campers_path, method: :get) %><br>
